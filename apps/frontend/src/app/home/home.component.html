@@ -1,0 +1,8 @@
+<div class="container mt-5">
+    <h2>Welcome to the Home Page</h2>
+    <div *ngIf="profile">
+        <p><strong>User ID:</strong> {{ profile.userId }}</p>
+        <p><strong>Email:</strong> {{ profile.email }}</p>
+    </div>
+    <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+</div>

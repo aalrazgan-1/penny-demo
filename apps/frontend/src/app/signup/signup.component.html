@@ -1,0 +1,81 @@
+<div class="container mt-5">
+    <h2>Signup</h2>
+    
+    <div *ngIf="formError" class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ formError }}
+        <button type="button" class="btn-close" aria-label="Close" (click)="dismissAlert()"></button>
+    </div>
+  
+    <form [formGroup]="signupForm" (ngSubmit)="signup()">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          formControlName="email"
+          (blur)="onEmailBlur()"
+          [ngClass]="{ 'is-invalid': signupForm.get('email')?.invalid && signupForm.get('email')?.touched }"
+          required
+        />
+        <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="invalid-feedback">
+          <span *ngIf="signupForm.get('email')?.errors?.['required']">Email is required.</span>
+          <span *ngIf="signupForm.get('email')?.errors?.['email']">Please enter a valid email address.</span>
+          <span *ngIf="signupForm.get('email')?.errors?.['duplicate']">Email is already in use.</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          formControlName="password"
+          [ngClass]="{ 'is-invalid': signupForm.get('password')?.invalid && signupForm.get('password')?.touched }"
+          required
+        />
+        <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="invalid-feedback">
+          <span *ngIf="signupForm.get('password')?.errors?.['required']">Password is required.</span>
+          <span *ngIf="signupForm.get('password')?.errors?.['minlength']">Password must be at least 5 characters long.</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          class="form-control"
+          formControlName="firstName"
+          [ngClass]="{ 'is-invalid': signupForm.get('firstName')?.invalid && signupForm.get('firstName')?.touched }"
+          required
+        />
+        <div *ngIf="signupForm.get('firstName')?.invalid && signupForm.get('firstName')?.touched" class="invalid-feedback">
+          First Name is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          class="form-control"
+          formControlName="lastName"
+          [ngClass]="{ 'is-invalid': signupForm.get('lastName')?.invalid && signupForm.get('lastName')?.touched }"
+          required
+        />
+        <div *ngIf="signupForm.get('lastName')?.invalid && signupForm.get('lastName')?.touched" class="invalid-feedback">
+          Last Name is required.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary mt-3">Signup</button>
+    </form>
+  
+    <div class="mt-3">
+      <a [routerLink]="['/login']">Already have an account? Login</a>
+    </div>
+  </div>
+  
