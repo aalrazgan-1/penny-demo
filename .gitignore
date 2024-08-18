@@ -7,6 +7,7 @@ tmp
 
 # Environment Variables
 .env
+.env.*
 
 # dependencies
 node_modules
