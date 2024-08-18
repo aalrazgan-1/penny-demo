@@ -9,7 +9,7 @@ services:
     ports:
       - "3000:3000"
     env_file:
-      - .env.development
+      - .env
     networks:
       - app-network
 
