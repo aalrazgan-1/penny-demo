@@ -27,6 +27,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-  title = 'Penny Workspace';
+  title = 'Penny Demo';
 }
 

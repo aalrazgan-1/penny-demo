@@ -2,7 +2,13 @@
   "name": "@penny-workspace/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "app-build": "nx build frontend && nx test frontend --code-coverage",
+    "app-run": "nx serve frontend",
+    "server-build": "nx build backend && nx test backend --code-coverage",
+    "server-run": "nx serve backend",
+    "full": "npm run app-build && npm run app-run && npm run server-build && npm run backend"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~18.1.0",
